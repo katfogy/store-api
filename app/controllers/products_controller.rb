@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show update destroy ]
+  before_action :authenticate_users!, only: %i[ create, update, destroy]
 
   # GET /products
   def index
@@ -16,7 +17,7 @@ class ProductsController < ApplicationController
   # POST /products
   def create
     @product = Product.new(product_params)
-
+    authorize! :create, @product
     if @product.save
       render json: @product, status: :created, location: @product
     else
@@ -26,6 +27,7 @@ class ProductsController < ApplicationController
 
   # PATCH/PUT /products/1
   def update
+    authorize! :create, @product
     if @product.update(product_params)
       render json: @product
     else
@@ -35,6 +37,7 @@ class ProductsController < ApplicationController
 
   # DELETE /products/1
   def destroy
+    authorize! :destroy, @product
     @product.destroy!
   end
 

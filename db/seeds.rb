@@ -1,20 +1,20 @@
-# 30.times do
-#     User.create!(
-#         email: Faker::Internet.email,
-#         password: "secret123",
-#         name: Faker::Name.name,
-#         address: Faker::Address.full_address
-#     )
-# end
+30.times do
+    User.create!(
+        email: Faker::Internet.email,
+        password: "secret123",
+        name: Faker::Name.name,
+        address: Faker::Address.full_address
+    )
+end
 
-# 5.times do(
-#     Company.create!(
-#         name:Faker::Company.name,
-#     )
-# )
-# end
+5.times do(
+    Company.create!(
+        name:Faker::Company.name,
+    )
+)
+end
 
-# Category.create([{name:"House"}, {name:"Car"}, {name:"Motor", }, {name:"Gold"}])
+Category.create([{name:"House"}, {name:"Car"}, {name:"Motor", }, {name:"Gold"}])
 
 20.times do
     Product.create!(
