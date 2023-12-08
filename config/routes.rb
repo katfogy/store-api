@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :orders
+  resources :products
+  resources :categories
   resources :companies
   devise_for :users, path: 'api/auth', path_names: {
     sign_in: 'login',
