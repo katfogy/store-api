@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show update destroy ]
-  before_action :authenticate_users!
+  before_action :authenticate_user!
   # GET /orders
   def index
     @orders = Order.all
