@@ -5,12 +5,12 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.all
 
-    render json: @companies
+    render json: @companies.to_json(include: [:products])
   end
 
   # GET /companies/1
   def show
-    render json: @company
+    render json: @company.to_json(include: [:products])
   end
 
   # POST /companies
