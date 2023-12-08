@@ -8,7 +8,7 @@ class Ability
     can :read, Product, public: true
     can :read, Company, public: true
     can :read, Category, public: true
-     if user.persisted?
+     if user.present?
       can :create, Order
       can :read, Order, user_id: user.id
      end
