@@ -1,16 +1,16 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show update destroy ]
   before_action :authenticate_user!
+
   # GET /orders
   def index
-    @orders = Order.all
-    authorize! :read, @orders
+    @orders = Order.accessible_by(current_ability)
     render json: @orders.to_json(include: [:user, :product])
   end
 
   # GET /orders/1
   def show
-    authorize! :read, @orders
+    authorize! :read, @order
     render json: @order.to_json(include: [:user, :product])
   end
 
